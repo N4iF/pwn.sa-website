@@ -1,4 +1,4 @@
-baseURL = "https://pwn.sa/"
+baseURL = "/"
 languageCode = "en-us"
 theme = "poison"
 pageSize = 10
