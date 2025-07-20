@@ -13,7 +13,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     brand_image = "/images/avatar.png"   # path to the image shown in the sidebar
     description = "red teamer and sometimes skid." # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
-    favicon = "/favicon.png"             # path to favicon (defaults to favicon.png)
+    favicon = "favicon.png"             # path to favicon (defaults to favicon.png)
 
     front_page_content = ["posts"] # Equivalent to the default value, add page bundle names to include them on the front page.
 
