@@ -70,7 +70,7 @@ It automatically saves this TGT to a `.ccache` file. from Kali we can import t
   
 ## Mitigations
 
-I don't like blue team employees
+I don't like blue team employees    
 
 
 resource: https://academy.hackthebox.com/module/details/25  
