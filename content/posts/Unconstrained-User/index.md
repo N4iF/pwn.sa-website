@@ -66,8 +66,12 @@ Guess who behind the roguecomputer? The Hacker Man
 ## (5) The Payoff
 ![](relay.png)
 It automatically saves this TGT to a `.ccache` file. from Kali we can import the powerful DC TGT to our session and work remotely. using -K for kerberos authenticate and -no-pass to stop the regular authenticate  
-![](dump.png)
+![](dump.png)     
+  
+resource: https://academy.hackthebox.com/module/details/25  
 
+>Thank u for reading  
+_Note: if there is any misinformation, please DM in LinkedIn_
  
 
 
