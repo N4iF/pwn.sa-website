@@ -30,7 +30,7 @@ What do you need first?
 
 > So, how do you find this user who can edit sqldev? By enumerating DACLs. You need to look for a user that has permissions like GenericWrite on the sqldev account. We have carole.rose
 
->Since carole.rose have ACL right over sqldev, he can do Shadow Credential to get NTLM for the user
+>Since carole.rose have ACL right over sqldev, he can do Shadow Credential to get NTLM for the sqldev user
 
 **Now let's chain the attacks together. the cool part we will do it remotely from Kali Linux.**
 
