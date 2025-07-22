@@ -58,12 +58,12 @@ Start a listener that will act as the fake roguecomputer SMB service and is ca
 Because sqldev is trusted for Unconstrained Delegation, this ticket will contain a copy of the authenticating user's TGT. krbrelayx is designed to automatically extract this TGT.  
 **Tool:** krbrelayx.py
 
-## Force a Privileged Account to Authenticate
+## (4) Force a Privileged Account to Authenticate
 ![](Force.png)
 I will target DC using The Printer Bug This coerces the DC to try and authenticate to roguecomputer over SMB.   
 Guess who behind the roguecomputer? The Hacker Man
 
-## (4) The Payoff
+## (5) The Payoff
 ![](relay.png)
 It automatically saves this TGT to a `.ccache` file. from Kali we can import the powerful DC TGT to our session and work remotely. using -K for kerberos authenticate and -no-pass to stop the regular authenticate  
 ![](dump.png)
