@@ -28,7 +28,7 @@ What do you need first?
 1. **A compromised user (sqldev)** that has the TRUSTED_FOR_DELEGATION flag set. You need to know this user's password hash.
 2. **Another compromised user (carole.rose)** that has permission to create DNS records and modify the SPNs of the sqldev account. This is a crucial.
 
-> So, how do you find this user who can edit sqldev? By enumerating DACLs. You need to look for a user that has permissions like GenericWrite on the sqldev account.
+> So, how do you find this user who can edit sqldev? By enumerating DACLs. You need to look for a user that has permissions like GenericWrite on the sqldev account. We have carole.rose
 
 >Since carole.rose have ACL right over sqldev, he can do Shadow Credential to get NTLM for the user
 
