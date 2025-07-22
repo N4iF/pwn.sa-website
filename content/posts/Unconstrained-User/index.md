@@ -20,8 +20,8 @@ How do you get someone to authenticate to a user?
 
 let's call the Unconstrained delegation user as `sqldev`
 
-Now, the trick that is used by attackers, you will register a fake server name like `roguecomputer` in the user SPN that have Unconstrained delegation
-Why? when you force the DC to connect to `roguecomputer` the system send their TGT to `sqldev` who is have (who is disguised as roguecomputer), and you can steal DC TGT.
+Here's the trick. We can't make the DC talk to a user, but we can make it talk to a server. So, we're going to put a fake server mask on our user, sqldev.  
+We do this by editing sqldev's SPN to say he is now also roguecomputer. When we force the DC to authenticate to roguecomputer, it's actually sending its TGT straight to our user, sqldev, letting us steal it.
 
 ## Prerequisites
 What do you need first?
