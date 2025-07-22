@@ -30,6 +30,8 @@ What do you need first?
 
 > So, how do you find this user who can edit sqldev? By enumerating DACLs. You need to look for a user that has permissions like GenericWrite on the sqldev account.
 
+>Since carole.rose have ACL right over sqldev, he can do Shadow Credential to get NTLM for the user
+
 **Now let's chain the attacks together. the cool part we will do it remotely from Kali Linux.**
 
 ## (1) Starting with DNS
@@ -71,7 +73,7 @@ It automatically saves this TGT to a `.ccache` file. from Kali we can import t
 ## Mitigations
 
 I don't like blue team employees   
-I WILL NOT LET THEM RUIN MY FUN   
+I WILL NOT LET THEM RUIN MY FUN  
 
 
 resource: https://academy.hackthebox.com/module/details/25  
