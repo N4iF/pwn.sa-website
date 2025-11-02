@@ -11,7 +11,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     brand = "Naif Alanazi"                      # name of your site - appears in the sidebar
     #remote_brand_image = '' # path to a remote file
     brand_image = "/images/avatar.png"   # path to the image shown in the sidebar
-    description = "red teamer and sometimes skid." # Used as default meta description if not specified in front matter
+    description = "Pentester and sometimes skid." # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
     favicon = "/favicon.png"             # path to favicon (defaults to favicon.png)
 
