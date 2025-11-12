@@ -6,9 +6,7 @@ tags: ["AD","ACL","TTP","Lateral Movement"]
 ---
 
 ## INTRO
-
-This is one of the machine that test my skills in DACL and lateral movement,
-however, I will write my experiences and my challenges that I faced, let's say it is like an engagement for pen-tester for AD networks, let's me show you the AD network that we have:
+This is DACL I skill assessment from HackTheBox, one of the machine that test my skills in **DACL** and lateral movement, however I will write my experiences and my challenges that I faced, let me show you the AD network that we have:
 ```
 domain: inlanefreight.local
 DC: dc01.inlanefreight.local
