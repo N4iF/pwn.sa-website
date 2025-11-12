@@ -6,7 +6,7 @@ tags: ["AD","ACL","TTP","Lateral Movement"]
 ---
 
 ## INTRO
-This is DACL I skill assessment from HackTheBox, one of the machine that test my skills in **DACL** and lateral movement, however I will write my experiences and my challenges that I faced, let me show you the AD network that we have:
+This is DACL I skill assessment from HackTheBox, one of the machines that test my skills in **DACL** and lateral movement, Below I will write my experiences and my challenges that I faced, let me show you the AD network that we have:
 ```
 domain: inlanefreight.local
 DC: dc01.inlanefreight.local
@@ -16,7 +16,7 @@ computers: WS01, REMOTE_SVC
 ## Enum
 
 I have got a credential to start the machine that is **carlos:Pentesting01**
-using this account let's stat an initial enumerations
+using this account let's start an initial enumeration
 
 ![](/posts/DACL1/1.png)
 ![](/posts/DACL1/2.png)
