@@ -137,4 +137,4 @@ Running DCSync requires replication privileges (like Replicating Directory Chang
 I got `krbtgt`!
 
 Thank you for reading, if there is any misinformation contact with my in LinkedIn.
-
+resource: https://academy.hackthebox.com/module/219/section/2329
