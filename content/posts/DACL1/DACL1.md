@@ -58,7 +58,7 @@ So we put our self as owner of the object, now we need select which right that w
 
 ![](/posts/DACL1/10.png)
 
-We can remotely read the LAPS for the WS01 because the password is stored in the computer attribute which we can read it from LDAP protocol in DC
+We can remotely read the LAPS for the WS01 because The password is stored by LAPS in the computer object’s ms-Mcs-AdmPwd attribute. It can only be read if your account has the correct LDAP read rights it’s not readable by everyone by default. WE HAVE THIS RIGHT NOW
 
 ![](/posts/DACL1/12.png)
 
@@ -130,6 +130,8 @@ in the new windows for remote_svc I have grant my self fullcontrol and add my se
 ## DCsync
 
 let's try close the windows and run it again and test dcsync using mimikatz
+Running DCSync requires replication privileges (like Replicating Directory Changes and Replicating Directory Changes All) or an ACL that grants them. Local admin rights alone aren’t enough. WE GOT THIS RIGHT
+
 `mimikatz # lsadump::dcsync /domain:inlanefreight.local /user:krbtgt`
 
 ![](/posts/DACL1/24.png)
