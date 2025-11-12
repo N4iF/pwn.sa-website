@@ -44,7 +44,7 @@ We used our GenericWrite permission to edit one of Mathew's **user attributes
 
 Adding an SPN tricks Active Directory into believing that Mathew's account is a service account. This allows us, as an attacker, to request a service ticket (TGS) for Mathew's "service". The domain controller (KDC) then creates this TGS and, most importantly, encrypts it using a hash derived from the service account's password—in this case, **Mathew's own account password**.
 
-Use hashcat to crack it "the hash is TGT which is "
+Use hashcat to crack it "the hash is TGS which is "
 `hashcat -m 13100 --force hashcatme.txt /usr/share/wordlists/rockyou.txt --force`
 
 ![](/posts/DACL1/5.png)
