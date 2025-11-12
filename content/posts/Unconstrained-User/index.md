@@ -79,7 +79,7 @@ I WILL NOT LET THEM RUIN MY FUN
 resource: https://academy.hackthebox.com/module/details/25  
 
 >Thank u for reading  
-_Note: if there is any misinformation, please DM in LinkedIn_
+_Note: if there is any inaccuracies, please DM in LinkedIn_
  
 
 

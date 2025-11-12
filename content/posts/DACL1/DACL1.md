@@ -6,7 +6,7 @@ tags: ["AD","ACL","TTP","Lateral Movement"]
 ---
 
 ## INTRO
-This is DACL I skill assessment from HackTheBox, one of the machines that test my skills in **DACL** and lateral movement, Below I will write my experiences and my challenges that I faced, let me show you the AD network that we have:
+This is DACL I skill assessment from HackTheBox, one of the machines that tested my skills in **DACL** and lateral movement, Below I will write my experiences and my challenges that I faced, let me show you the AD network that we have:
 ```
 domain: inlanefreight.local
 DC: dc01.inlanefreight.local
@@ -60,18 +60,18 @@ We can remotely read the LAPS for the WS01 because The password is stored by LAP
 
 ![](/posts/DACL1/12.png)
 
-I forget to tell that we have only one public IP to attack which it DC01 10.129.205.122
+I forget to mention that we have only one public IP to attack which it DC01 10.129.205.122
 in the enterprise there is a pivot port in this IP that is 13889 if we connect to this port it will direct us to the WS01 machine in 3389 port which is for the WS01 RDP.
 We used `Administrator:9P-82cdtoI2.Iq` we catch this from LDAP abuse
 
 ![](/posts/DACL1/14.png)
 
-So we get in the machine with local admin, we can start dumping the credentials with `mimikatz`, and I found a cached domain user with is `jose` and he's NT HASH
+So we get in the machine with local admin, we can start dumping the credentials with `mimikatz`, and I found a cached domain user with is `jose` and his NT HASH
 
 ![](/posts/DACL1/15.png)
 
 I want to explain two terms here:
-* PtH (Pass the Hash): We found jose NT hash we can pass it to get session under he's name and he's privileges
+* PtH (Pass the Hash): We found jose NT hash we can pass it to get session under his name and his privileges
 * OPtH (Over-pass the hash): is using jose NT hash to request from the DC to get the TGT that is for jose, then we can use the TGT to request TGS, we can use it remotely also from kali
 
 ## Second Attack path
@@ -80,7 +80,7 @@ getting back to the bloodhound we see a new attack path.
 
 ![](/posts/DACL1/16.png)
 
-Now we have WriteDACL, this right is direct we can edit the security descriptor to abuse it. but in the past we was facing a user and we used SPN abuse, now what?
+Now we have WriteDACL, this right is direct we can edit the security descriptor to abuse it. but in the past we were facing a user and we used SPN abuse, now what?
 Also we have NT hash for jose, we don't have plaintext password? how can we abuse this relationship?
 Local administrator cannot enumerate the AD? 
 
@@ -106,7 +106,7 @@ To fix this, you have to get a new token. The easiest way is to start a new logo
 ![](/posts/DACL1/20.png)
 
 I got them, the old and the new NT hash that they used in `remote_svc$` computer.
-We started a jose session using he's NT hash, and we can now start a new session under `remote_svc$`. new windows but now with computer
+We started a jose session using his NT hash, and we can now start a new session under `remote_svc$`. new windows but now with computer
 ### Second Sacrificial process
 ```
 .\mimikatz.exe privilege::debug "sekurlsa::pth /user:remote_svc /domain:inlanefreight.local /ntlm:0077EF1652B20A7845C5B6AFB3C1718D /run:powershell.exe" exit
@@ -121,7 +121,7 @@ Even if you see administrator account in the new PtH window, it is still the **
 this computer, can control MicrosoftSync group, that can do DCsync attack which can dump any user NT hash in domain joined network 
 
 
-in the new windows for remote_svc I have grant my self fullcontrol and add my self in the group that for dcsync
+in the new windows for remote_svc I have grant myself fullcontrol and add my self in the group that for dcsync
 
 ![](/posts/DACL1/23.png)
 
@@ -136,5 +136,5 @@ Running DCSync requires replication privileges (like Replicating Directory Chang
 
 I got `krbtgt`!
 
-Thank you for reading, if there is any misinformation contact with my in LinkedIn.
+Thank you for reading, if there is any inaccuracies, feel free to contact me in LinkedIn.
 resource: https://academy.hackthebox.com/module/219/section/2329
