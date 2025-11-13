@@ -40,15 +40,15 @@ To understand what's happening here, our goal is to get a service ticket (TGS) t
 
 We used our GenericWrite permission to edit one of Mathew's **user attributes**, making him vulnerable to a **Kerberoasting** attack. Specifically, we added a Service Principal Name (SPN) to his servicePrincipalName attribute.
 
-Adding an SPN tricks Active Directory into believing that Mathew's account is a service account. This allows us, as an attacker, to request a service ticket (TGS) for Mathew's "service". The domain controller (KDC) then creates this TGS and, most importantly, encrypts it using a hash derived from the service account's password—in this case, **Mathew's own account password**.
+When we add an SPN to a user account, Active Directory starts issuing Kerberos service tickets for that account. This makes the account eligible for Kerberoasting attacks, allowing us to request and crack those tickets offline. It doesn’t turn the user into a “service account,” it just enables ticket issuance that attackers can abuse.
 
 Use hashcat to crack it "the hash is TGS which is "
 `hashcat -m 13100 --force hashcatme.txt /usr/share/wordlists/rockyou.txt --force`
 
 ![](/posts/DACL1/5.png)
 
- We have mathew's password, in the attack path from bloodhound shown that any one in Network Admins can read the LAPS, this is  security feature that automatically manages and randomizes the password of the local administrator account on devices
-Now mathew have `WriteOwner` over the Network Admins object, we cannot directly go and add our self in the group, WriteOwner is mean we can change the ownership of the Network Admins object. After this we can get most of the  right if we own the object
+We have mathew's password, in the attack path from bloodhound shown that any one in Network Admins can read the LAPS, this is  security feature that automatically manages and randomizes the password of the local administrator account on devices
+The WriteOwner permission allows us to take ownership of an object, but ownership alone doesn’t instantly give full control. Once we become the owner, we can modify the object’s DACL and grant ourselves any rights we need — that’s what truly gives us control.
 
 ![](/posts/DACL1/8.png)
 
@@ -135,6 +135,9 @@ Running DCSync requires replication privileges (like Replicating Directory Chang
 ![](/posts/DACL1/24.png)
 
 I got `krbtgt`!
+
+## Defender side
+To defend against these DACL abuses, restrict who has GenericWrite, WriteDACL, or WriteOwner permissions, monitor for unexpected DACL or ownership changes, and alert when new SPNs are created on regular user accounts. Regular permission reviews and logging can prevent these privilege escalation paths.
 
 Thank you for reading, if there is any inaccuracies, feel free to contact me in LinkedIn.
 resource: https://academy.hackthebox.com/module/219/section/2329
