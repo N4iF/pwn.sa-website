@@ -40,7 +40,7 @@ To understand what's happening here, our goal is to get a service ticket (TGS) t
 
 We used our GenericWrite permission to edit one of Mathew's **user attributes**, making him vulnerable to a **Kerberoasting** attack. Specifically, we added a Service Principal Name (SPN) to his servicePrincipalName attribute.
 
-When we add an SPN to a user account, Active Directory starts issuing Kerberos service tickets for that account. This makes the account eligible for Kerberoasting attacks, allowing us to request and crack those tickets offline. It doesn’t turn the user into a “service account,” it just enables ticket issuance that attackers can abuse.
+When we add an SPN to a user account, Active Directory will issue Kerberos service tickets (TGS) for that account. This makes the account eligible for Kerberoasting: an attacker can request the TGS and perform offline cracking against the ticket to recover the account password. An SPN does not magically convert a user into a special “service account”; it simply enables ticket issuance, which Kerberoast abuses.
 
 Use hashcat to crack it "the hash is TGS which is "
 `hashcat -m 13100 --force hashcatme.txt /usr/share/wordlists/rockyou.txt --force`
@@ -48,6 +48,7 @@ Use hashcat to crack it "the hash is TGS which is "
 ![](/posts/DACL1/5.png)
 
 We have mathew's password, in the attack path from bloodhound shown that any one in Network Admins can read the LAPS, this is  security feature that automatically manages and randomizes the password of the local administrator account on devices
+
 The WriteOwner permission allows us to take ownership of an object, but ownership alone doesn’t instantly give full control. Once we become the owner, we can modify the object’s DACL and grant ourselves any rights we need — that’s what truly gives us control.
 
 ![](/posts/DACL1/8.png)
@@ -56,7 +57,7 @@ So we put our self as owner of the object, now we need select which right that w
 
 ![](/posts/DACL1/10.png)
 
-We can remotely read the LAPS for the WS01 because The password is stored by LAPS in the computer object’s ms-Mcs-AdmPwd attribute. It can only be read if your account has the correct LDAP read rights it’s not readable by everyone by default. WE HAVE THIS RIGHT NOW
+We can remotely read the LAPS for the WS01 because The password is stored by LAPS in the computer object’s ms-Mcs-AdmPwd attribute. It can only be read if your account has the correct LDAP read rights it’s not readable by everyone by default. We can read it because we grant our self a right in DACL
 
 ![](/posts/DACL1/12.png)
 
