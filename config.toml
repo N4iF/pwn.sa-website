@@ -29,7 +29,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     ]
 
     # Links to your socials.  Comment or delete any you don't need/use. 
-    email_url = "mailto://n4if.work@gmail.com"
+    email_url = "mailto:n4if.work@gmail.com"
     linkedin_url = "https://linkedin.com/in/n4if"
     tryhackme_url = "https://tryhackme.com/p/n4if"
 
