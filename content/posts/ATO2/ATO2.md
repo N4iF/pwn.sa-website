@@ -52,7 +52,7 @@ I intercepted the request to the /SEND/Code endpoint using Burp Suite.
 }
 ```
 
-we did not finish here. when we reach this stage it actuality sending password to the username that we put. we need to get this password from the victim "Normally we can't see he's phone messages or access he's email to see the password". but we find the OTP for now.
+we did not finish here. when we reach this stage it actually sending password to the username that we put. we need to get this password from the victim "Normally we can't see he's phone messages or access his email to see the password". but we find the OTP for now.
 ## Second Vulnerable Code Snippet
 
 **this JS snippet code is the big problem, it can show up the password for you if you give him two things: the username + OTP code that is leaked in the previous snippet code**
