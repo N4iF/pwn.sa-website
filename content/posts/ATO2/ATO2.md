@@ -90,6 +90,8 @@ We need to catch this line:
 
 **How can we print it?**
 
+*"Since the browser automatically redirects to /Login/Logout, we cannot see the alert box in the browser. We must use Burp Suite Repeater to send the request manually and read the password from the JSON response."*
+
 Let's use this endpoint that is in JS code above: 
 ```js
         type: "POST",
