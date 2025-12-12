@@ -58,7 +58,7 @@ And I got my response that I need
 ![](/posts/React2Shell/1.png)
 
 So I crafting the payload based in the Write up that I read about and I used `whoami` to see the user that I am currently on:
-![](/posts/React2Shell/2.png)
+![](/posts/React2Shell/22.png)
 Response:
 ![](/posts/React2Shell/3.png)
 I was a **root** user that is have high privilege.
