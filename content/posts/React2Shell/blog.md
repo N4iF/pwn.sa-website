@@ -1,10 +1,10 @@
 ---
-title: "I found RCE in beta gov website but I discover crypto mining services!"
+title: "I found Cryptominer services in Public government Pre-Production Host"
 date: 2025-12-12T19:55:31+03:00
 draft: false
 ---
 
-*You should now first the website was in beta mode or not released yet but I found their IP using Threat Intelligence Platform like shodan, censys with search syntax that I used*
+*You should now first the website was in publicly exposed pre-production (staging) host used for validating deployments before release but I found their IP using Threat Intelligence Platform like shodan, censys with search syntax that I used*
 
 ## Introduction
 
