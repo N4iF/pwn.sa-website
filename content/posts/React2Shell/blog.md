@@ -4,7 +4,7 @@ date: 2025-12-12T19:55:31+03:00
 draft: false
 ---
 
-*You should now first the website was in publicly exposed pre-production (staging) host used for validating deployments before release but I found their IP using Threat Intelligence Platform like shodan, censys with search syntax that I used*
+*You should now first the website was in publicly exposed pre-production (staging) host used for validating deployments before release*
 
 ## Introduction
 
