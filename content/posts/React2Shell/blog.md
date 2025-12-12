@@ -1,5 +1,5 @@
 ---
-title: "I found Cryptominer services in Public government Pre-Production Host"
+title: "I Found a Cryptominer on a Public Government Pre-Production Host"
 date: 2025-12-12T19:55:31+03:00
 draft: false
 ---
