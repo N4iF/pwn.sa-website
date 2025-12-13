@@ -10,7 +10,7 @@ draft: false
 
 Hi, when React2Shell (cve-2025-55182) started and I was boring, I turn on my PC to collect as many website I can that infected with this vulnerability, one of the website that I spot is Public-Private Partnership (PPP) it means it is collaboration between government and the private company. 
 
-So the Idea was simple, detect if there is React2Shell then test it, write PoC send the report.
+the Idea was simple, detect if there is React2Shell then test it, write PoC send the report.
 
 React2Shell: with a maximum CVSS score of 10.0. This vulnerability affects React Server Components (RSC) and the frameworks that implement them, particularly Next.js. The vulnerability, dubbed “React2Shell” by researchers, allows unauthenticated remote code execution through a single crafted HTTP request. - *TryHackMe*
 vulnerable versions are 19.0, 19.1.0, 19.1.1, and 19.2.0.
@@ -57,7 +57,7 @@ Content-Disposition: form-data; name="0"
 And I got my response that I need
 ![](/posts/React2Shell/1.png)
 
-So I crafting the payload based in the Write up that I read about and I used `whoami` to see the user that I am currently on:
+I crafting the payload based in the Write up that I read about and I used `whoami` to see the user that I am currently on:
 ![](/posts/React2Shell/22.png)
 Response:
 ![](/posts/React2Shell/3.png)
@@ -70,7 +70,7 @@ in this point I started to write the report to send it, but I said I will run mo
 ![](/posts/React2Shell/5.png)
 
 it is like protection from crypto mining **if anything on this system tries to resolve `pool.minexmr.com` or `minexmr.com`, it will resolve to 127.0.0.1 (itself)**
-So for all those domains (they’re **well-known Monero/XMR mining pool endpoints**), you’re effectively:
+for all those domains (they’re **well-known Monero/XMR mining pool endpoints**), you’re effectively:
 - **blocking outbound mining** to those pools (connections will go to the local machine and fail unless something is listening locally),
 - or **redirecting** them to localhost (a “sinkhole”).
 
@@ -80,11 +80,11 @@ Good protection but I am root now :) I can edit this file,
 >Quick question is a miner running right now? so I run:
 
 `top -b -n1 | head -100` to see the process running
-So two suspicious running right now:
+two suspicious running right now:
 
 ![](/posts/React2Shell/6.png)
 
-So there some files that I need to check: 
+there some files that I need to check: 
 ```
 /dev/stink.sh
 /dev/fghgf -c /dev/ijnegrrinje.json -B
@@ -159,7 +159,7 @@ done
 ```
 
 
-**So here when the impacts increase and I can add more to the report**
+**here when the impacts increase and I can add more to the report**
 
 It runs **forever**:
 
