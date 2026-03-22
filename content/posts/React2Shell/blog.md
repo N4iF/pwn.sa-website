@@ -55,18 +55,24 @@ Content-Disposition: form-data; name="0"
 ------WebKitFormBoundarys7yf55w2yfu0m4bv--
 ```
 And I got my response that I need
+
 ![](/posts/React2Shell/1.png)
 
 I crafting the payload based in the Write up that I read about and I used `whoami` to see the user that I am currently on:
+
 ![](/posts/React2Shell/22.png)
+
 Response:
+
 ![](/posts/React2Shell/3.png)
+
 I was a **root** user that is have high privilege.
 ## botnet, mining service, persistence and more!
 
 in this point I started to write the report to send it, but I said I will run more command to show them that I can read files and edit them. I decided to run `cat /etc/hosts`
 
 ![](/posts/React2Shell/4.png)
+
 ![](/posts/React2Shell/5.png)
 
 it is like protection from crypto mining **if anything on this system tries to resolve `pool.minexmr.com` or `minexmr.com`, it will resolve to 127.0.0.1 (itself)**
@@ -193,14 +199,18 @@ So I can read /dev/ijnegrrinje.json to see what the attacker do!!! but the serve
 
 
 Other thing I found is a file create a persistence to the server it was:
+
 ![](/posts/React2Shell/8.png)
+
 this open a connection to any one to connect to the server
 using: `nc 22.22.22.22 12340`
 
 Other file is creating a backdoor with weak password to enter the server
 
 in crontab list I also find a file
+
 ![](/posts/React2Shell/9.png)
+
 it might be also for persistence, it run every time system boot
 
 it was like a party in the server,
